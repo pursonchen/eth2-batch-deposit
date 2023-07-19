@@ -18,12 +18,10 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
-
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const fs = require("fs");
+const mnemonicPhrase = fs.readFileSync(".secret").toString().trim();
+const alchemyProjectID = fs.readFileSync(".alchemy").toString().trim();
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -44,7 +42,7 @@ module.exports = {
     //
     development: {
       host: "127.0.0.1", // Localhost (default: none)
-      port: 7545, // Standard Ethereum port (default: none)
+      port: 8545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
     },
     ci: {
@@ -57,6 +55,18 @@ module.exports = {
       port: 8545,
       network_id: "*",
       gas: 8000000,
+    },
+    goerli: {
+      // must be a thunk, otherwise truffle commands may hang in CI
+      provider: () =>
+        new HDWalletProvider({
+          mnemonic: {
+            phrase: mnemonicPhrase,
+          },
+          providerOrUrl:
+            "https://eth-goerli.g.alchemy.com/v2/" + alchemyProjectID,
+        }),
+      network_id: "5",
     },
     // Another network with more advanced options...
     // advanced: {
@@ -91,7 +101,11 @@ module.exports = {
   },
 
   // Plugins
-  plugins: ["solidity-coverage"],
+  plugins: ["solidity-coverage", "truffle-plugin-verify"],
+
+  api_keys: {
+    etherscan: fs.readFileSync(".etherscan").toString().trim(),
+  },
 
   // Configure your compilers
   compilers: {

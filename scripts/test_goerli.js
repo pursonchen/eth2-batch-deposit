@@ -3,9 +3,11 @@ const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 let provider = new HDWalletProvider({
   mnemonic: {
-    phrase: "write your mnemonic",
+    phrase:
+      "nmenomic here",
   },
-  providerOrUrl: "https://goerli.infura.io/v3/f52bd8e7578c435c978ab9cf68cd3a18",
+  providerOrUrl:
+    "https://eth-goerli.g.alchemy.com/v2/",
 });
 
 const web3 = new Web3(provider);
