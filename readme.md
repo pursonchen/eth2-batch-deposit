@@ -23,8 +23,17 @@ You can test the contract on both goerli testnet or in your local development en
 1. Tun `truffle deploy` to compile & deploy, or just `truffle test` to compile, deploy and test automatically.
 <!-- https://docs.avax.network/dapps/developer-toolchains/verify-smart-contracts-with-truffle-verify -->
 
+npm install @truffle/hdwallet-provider truffle-plugin-verify@v0.5.3
+
+需要将proxy paste到command line
+
+``` 以下error需要安装 truffle-plugin-verify@v0.5.3
+Cannot read properties of undefined (reading 'address')
+   Failed to verify 1 contract(s): BatchDeposit
+Verifying contracts on sourcify
+```
 npx truffle migrate --network goerli 
-npx truffle run verify BatchDeposits --network goerli
+npx truffle run verify BatchDeposit --network goerli
 
 ### Test on Goerli
 
