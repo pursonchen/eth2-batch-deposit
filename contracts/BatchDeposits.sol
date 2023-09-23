@@ -1,24 +1,14 @@
 
-//                                                                           ,,---.
-//                                                                         .-^^,_  `.
-//                                                                    ;`, / 3 ( o\   }
-//         __             __                     ___              __  \  ;   \`, /  ,'
-//        /\ \__         /\ \                  /'___\ __         /\ \ ;_/^`.__.-"  ,'
-//    ____\ \ ,_\    __  \ \ \/'\      __     /\ \__//\_\    ____\ \ \___     `---'
-//   /',__\\ \ \/  /'__`\ \ \ , <    /'__`\   \ \ ,__\/\ \  /',__\\ \  _ `\
-//  /\__, `\\ \ \_/\ \L\.\_\ \ \\`\ /\  __/  __\ \ \_/\ \ \/\__, `\\ \ \ \ \
-//  \/\____/ \ \__\ \__/.\_\\ \_\ \_\ \____\/\_\\ \_\  \ \_\/\____/ \ \_\ \_\
-//   \/___/   \/__/\/__/\/_/ \/_/\/_/\/____/\/_/ \/_/   \/_/\/___/   \/_/\/_/
-//
-// stakefish Eth2 Batch Deposit contract
+// mipool Eth2 Batch Deposit contract
 //
 // ### WARNING ###
 // DO NOT USE THIS CONTRACT DIRECTLY. THIS CONTRACT IS ONLY TO BE USED 
-// BY STAKING VIA stakefish's WEBSITE LOCATED AT: https://stake.fish
+// BY STAKING VIA mipool's WEBSITE LOCATED AT: https://stake.mipool.one
 //
 // This contract allows deposit of multiple validators in one transaction
-// and also collects the validator service fee for stakefish
+// and also collects the validator service fee for mipool
 //
+// forked from stakefish
 // SPDX-License-Identifier: Apache-2.0
 
 pragma solidity 0.6.11;

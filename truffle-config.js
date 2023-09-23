@@ -68,6 +68,18 @@ module.exports = {
         }),
       network_id: "5",
     },
+    mainnet: {
+      // must be a thunk, otherwise truffle commands may hang in CI
+      provider: () =>
+        new HDWalletProvider({
+          mnemonic: {
+            phrase: mnemonicPhrase,
+          },
+          providerOrUrl:
+            "https://eth-mainnet.g.alchemy.com/v2/" + alchemyProjectID,
+        }),
+      network_id: "1",
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
